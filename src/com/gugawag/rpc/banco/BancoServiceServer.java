@@ -26,4 +26,19 @@ public class BancoServiceServer extends UnicastRemoteObject implements BancoServ
         return saldoContas.size();
     }
 
+    @Override
+    public void cadastrarConta(String conta, double saldo) throws RemoteException {
+        saldoContas.put(conta, saldo);
+    }
+
+    @Override
+    public void removerConta(String conta) throws RemoteException {
+        saldoContas.remove(conta);
+    }
+
+    @Override
+    public double pesquisarConta(String conta) throws RemoteException {
+        return saldoContas.get(conta);
+    }
+
 }
